@@ -1,67 +1,146 @@
 @charset "utf-8";
 @import url(./normalize.css);
-/* 기본 박스 사이징 재 설정 (width에 qhejdnlxmdhk 보더 패딩을 포함하여 계산) */
-*, *::before, *::after {
-    box-sizing: border-box;
+/* 기본 박스 사이징 재 설정 
+(width에 border-width와 padding을 포함하여 계산) */
+*, *::before, *::after{
+  box-sizing: border-box;
 }
-/* css module  */
-/* float 이슈를 하기위한 플로트 선언*/ 
+/* 숨김컨텐츠 */
+.a11y-hidden{
+    /* background-color: tomato; */
+    position: absolute; 
+    
+    /* text-indent: -10000px;
+    left: -10000px;
+    예전에 쓰던 방식이지만 시각장애인들한테 안 좋은 오류 나와서 안씀 */
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    margin: -1px;
+    clip: rect(0,0,0,0);
+    /* 마스크 씌우듯이 보이는 영역을 지정하는데 이걸 0으로 만들어서 안보이게함  */
+    clip-path: polygon(0 0, 0 0, 0 0);
+}
+/* CSS Module */
+/* float 이슈를 해결하기 위한 CSS 선언 */
 .clearfix::after{
-    display: block;
-    content: "";
-    clear: both;
+  display: block;
+  content: "";
+  clear: both;
 }
-
+a{
+    text-decoration: none;
+    /* 부모요소 body의 글자색 상속받는다 */
+    color: inherit;
+}
+html{
+    font-size: 10px;
+}
+body{
+    font-size: 1.4rem;
+    color: #181818;
+    background-color: #fff;
+}
 .container{
-    background-color: silver;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  background-color: silver;
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; */
 }
 .header, .visual, .main, .slogan, .footer{
-    width: 940px;
-    /* margin: 0 auto; */
+  box-sizing: border-box;
+  width: 940px;
+  margin: 0 auto;
 }
 .header{
-    background-color: yellow;
-    height: 10vh;
+  background-color: #fff;
+  border-radius: 0 0 15px 15px;
+  padding: 0 30px;
+  position: relative;
+}
+.logo{
+      /* background-color: green; */
+      margin: 0;
+      position: absolute;
+      top: 45px;
+      left: 65px;
+  }
+.member{
+    /* background-color: pink; */
+    margin: 0;
+    padding: 2px;
+    padding-left: 2px 0;
+    /*  */
+    list-style-type: none;
+    text-align: right;
+    font-size: 0;
+    right: -10px;
+}
+.member li, .member a{
+    display: inline-block;
+}
+/* 공백을 없애기 위해 부모의 폰트 사이즈를 0으로 만들어 폰트를 없앳다가 자식에 폰트사이즈 재설정 한다 */
+.member li{
+    /* background-color: yellow; */
+    display: inline;
+    font-size: 16px;
+}
+/* .member li::before{
+    content: ":";
+} */
+.member li:nth-child(n+2)::before{
+    content: ":";
+    margin: 0 2px;
+}
+.member a{
+    /* display: inline-block; */
+    text-transform: uppercase;
+    padding: 10px;
+    /* background-color: aqua; */
 }
 .visual{
-    background-color: lime;
-    height: 10vh;
+  background-color: lime;
+  height: 10vh;
 }
 .main{
-    height: 60vh;
-    background-color:blue;
-    /* padding: 30px 15px; */
+  display: flex;
+  /* flex-direction: row; */
+  flex-flow: row wrap;
+  justify-content: space-around;
+  height: 60vh;
+  padding: 30px 15px;
+  background-color: #fff;
+  /* padding: 30px 15px; */
 }
 .group{
-    /* float: left;
-    height: 60vh;
-    margin: 0 15px; */
+  /* float: left;
+  height: 60vh;
+  margin: 0 15px; */
 }
 .group1{
-    background-color: tomato;
-    width: 250px;
-
+  background-color: tomato;
+  width: 250px;
 }
 .group2{
-    background-color: skyblue;
-    width: 380px;
+  background-color: skyblue;
+  width: 380px;
 }
 .group3{
-    background-color: pink;
-    width: 190px;
+  background-color: pink;
+  width: 190px;
 }
-
 .slogan{
-    background-color: orange;
-    height: 10vh;
+  background-color: orange;
+  height: 10vh;
 }
 .footer-bg{
-    background-color: purple;
+  background-color: purple;
+  /* width: 100vw; */
+  /* display: flex;
+  flex-direction: row;
+  justify-content: center; */
 }
 .footer{
-    background-color: yellow;
-    height: 10vh;
+  background-color: yellow;
+  height: 10vh;
 }
