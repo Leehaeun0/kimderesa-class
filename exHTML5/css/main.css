@@ -1,4 +1,6 @@
 @charset "utf-8";
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
+@import url(./fontello.css);
 @import url(./normalize.css);
 /* 기본 박스 사이징 재 설정 
 (width에 border-width와 padding을 포함하여 계산) */
@@ -6,7 +8,7 @@
   box-sizing: border-box;
 }
 /* 숨김컨텐츠 */
-.a11y-hidden{
+.a11y-hidden, legend {
     /* background-color: tomato; */
     position: absolute; 
     
@@ -28,6 +30,7 @@
   content: "";
   clear: both;
 }
+/* a 태그가 어디의 뭔가요? */
 a{
     text-decoration: none;
     /* 부모요소 body의 글자색 상속받는다 */
@@ -40,6 +43,8 @@ body{
     font-size: 1.4rem;
     color: #181818;
     background-color: #fff;
+    font-family: 'Spoqa Han Sans', 'Sans-serif';
+    font-weight: 300;
 }
 .container{
   background-color: silver;
@@ -63,12 +68,13 @@ body{
       margin: 0;
       position: absolute;
       top: 45px;
-      left: 65px;
+      left: 60px;
+      z-index: 10;
   }
 .member{
     /* background-color: pink; */
     margin: 0;
-    padding: 2px;
+    padding: 2px 0;
     padding-left: 2px 0;
     /*  */
     list-style-type: none;
@@ -82,12 +88,13 @@ body{
 /* 공백을 없애기 위해 부모의 폰트 사이즈를 0으로 만들어 폰트를 없앳다가 자식에 폰트사이즈 재설정 한다 */
 .member li{
     /* background-color: yellow; */
-    display: inline;
-    font-size: 16px;
+    /* display: inline; */
+    font-size: 1.4rem;
 }
 /* .member li::before{
-    content: ":";
-} */
+    content: ":";} */
+
+    /* 멤버에 첫번째 빼고 두번째 부터 :를 추가한다 */
 .member li:nth-child(n+2)::before{
     content: ":";
     margin: 0 2px;
@@ -95,22 +102,181 @@ body{
 .member a{
     /* display: inline-block; */
     text-transform: uppercase;
-    padding: 10px;
+    padding: 8px 10px;
     /* background-color: aqua; */
 }
+.navigation{
+  /* background-color: yellow; */
+  padding-bottom: 50px;
+}
+.menu{
+  /* 앱솔루트 위엔 무조건 랠러티브 
+  랠러티브는 떠있는 개체라 겹쳐서 안보일수 있다.*/
+  /* position: relative; */
+  height: 47px;
+  list-style: none;
+  padding-left: 229px;
+  margin: 0;
+  border-top: 2px solid #000;
+  /* background-image: linear-gradient(45deg red, blue, green); */
+  background: linear-gradient(to bottom, #e8852e 0%, #ed552f 35%, #ed552f 70%, #e8852e 100%);
+  background-color: #ed552f;
+  /* background-color: orangered;
+  
+  background-color: blue; */
+  /* 칼라는 맨 마지막에 오는게 좋다 칼라가 백그라운드 이미지보다 앞쪽에 오면 이미지를 안보이게 했을때 같이 안보인다.
+  백그라운드 이미지는 칼라가 아니라 "이미지"를 칼라 위에 덧씌운것을 이해해라. */
+  /* box-shadow: 0 -10px 0 0 #000; */
+  /* 0 -10 음수는 위쪽 양수는 아래쪽 0 0 흐림기능 0 */
+}
+/* .menu-item:nth-child(1){
+  margin: 100px;} */
+
+.menu-item{
+  outline: none;
+  position: relative;
+  /* background-color: skyblue; */
+  float: left;
+  /* padding-top: 13px; 일일히 고쳐야함 */
+  border-left: 2px solid rgba(255,255,255,0.3);
+}
+.menu-button{
+  cursor: pointer;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.6rem;
+  /* 라인 하이츠 : 메뉴 가운데로 정렬하는 방법이다 패딩에 비해 유지보수 수정이 쉽다. */
+  line-height: 45px;
+  /* border-left: 2px solid #fff; */
+  padding: 0 20px;
+  display: block;
+  /* background-color: darkblue; */
+  text-shadow: 1px 0 0 #000, -1px 0 0 #000, 0 1px 0 #000, 0 -1px 0 #000;
+}
+.menu-act .menu-button{
+  color: #ff0;
+  /* 구체성 임폴턴트도 안먹히면 상속의 문제이다 */
+  /* border-bottom: 2px solid #000; */
+}
+.menu-act .menu-button::after{
+  content: "";
+  display: block;
+  border-top: 2px solid #000;
+  /* background-color: green; */
+}
+.submenu{
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  position: absolute;
+  /* background-color: lightgreen; */
+  display: none;
+  white-space: nowrap;
+  top: 47px;
+  /* left: 300px; */
+  /* width: 500px; 서브메뉴가 줄바꿈 되는 걸 막아줌 하지만 길이 더 늘릴수 없음
+  화이트 스페이스가 레이아웃 지킬때 유용함 */
+}
+/* 서브메뉴 1번 클래스 이름 지정 없이 접근하는 방법 :nth-child() */
+.menu-act .submenu{
+  /* background-color: pink; */
+  display: block;
+}
+.menu li:nth-child(-n+3) .submenu{
+  left: 0;
+}
+.menu li:nth-child(n+4) .submenu{
+  right: 0;
+}
+.submenu li, .submenu a{
+  display: inline-block;
+}
+.submenu a{
+  padding: 8px 10px;
+  /* background-color: yellow; */
+}
+
+/* .submenu li{
+  float: left;
+} */
 .visual{
   background-color: lime;
-  height: 10vh;
+  height: 120px;
+  /* background-color: yellow;
+  background-image: url(./images/ani_flower_01.png), linear-gradient(red, green);
+  background-repeat: no-repeat, repeat;
+  background-position: 30px 40px 0 0;
+  background-attachment: scroll, fixed;
+  background-size: 100% 100%, 100px 100px; */
+
+  /* background: yellow url(./images/ani_flower_01.png)
+  no-repeat 30px 40px / 100% 100% scroll;
+  background-color: yellow; */
+/* 속기법 으로 할때는 엘로우 색깔이 맨앞으로 하면 안나온다 칼라는 맨 마지막에 꼭 해야함 백그라운드 칼라는 속기법속에 쓰지말고 따로 맨뒤에 쓰도록한다. */
+}
+@keyframes textAni{
+  0%{
+    font-size: 12px;
+    color: rgba(0,0,0,0);
+    transform: translate(400px, 75px);
+  }
+  100%{
+    font-size: 24px;
+    color: rgba(0,0,0,1);
+    transform: translate(400px, 75px);
+    left: 
+  }
+}
+
+.visual-text{
+  font-family: Georgia;
+  display: inline-block;
+  background-color: yellow;
+  animation-name: textAni;
+  animation-duration: 3000ms;
+  animation-fill-mode: forwards;
+  animation-delay: 1000ms;
+  color: rgba(0, 0, 0, 0);
+}
+@keyframes bgAni{
+  0%{opacity: 1;}
+  /* 50%{opacity: 50%;} */
+  100%{opacity: 0;}
+}
+.visual::before, .visual::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-repeat: no-repeat;
+  animation: bgAni 2s infinite alternate;
+  /* 순방향 역방향으로 무한 반복 애니메이션 */
+
+}
+.visual::before{
+  background:
+  url(./images/ani_flower_01.png), url(./images/ani_flower_02.png);
+  background-position: 0 0;
+}
+.visual::after{
+  background:
+  url(./images/ani_flower_03.png), url(./images/ani_flower_04.png);
+  background-position: 300px 0, 800px, 0;
+  animation-delay: 1s;
 }
 .main{
   display: flex;
   /* flex-direction: row; */
   flex-flow: row wrap;
   justify-content: space-around;
-  height: 60vh;
+  /* height: 60vh; */
+  min-height: 450px;
   padding: 30px 15px;
   background-color: #fff;
   /* padding: 30px 15px; */
+  border-radius: 15px 15px 0 0;
 }
 .group{
   /* float: left;
@@ -118,16 +284,124 @@ body{
   margin: 0 15px; */
 }
 .group1{
-  background-color: tomato;
+  /* background-color: tomato; */
   width: 250px;
 }
 .group2{
-  background-color: skyblue;
+  /* background-color: skyblue; */
   width: 380px;
 }
 .group3{
-  background-color: pink;
+  /* background-color: pink; */
   width: 190px;
+}
+.legend{
+  position: absolute; 
+    
+  /* text-indent: -10000px;
+  left: -10000px;
+  예전에 쓰던 방식이지만 시각장애인들한테 안 좋은 오류 나와서 안씀 */
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  margin: -1px;
+  clip: rect(0,0,0,0);
+  /* 마스크 씌우듯이 보이는 영역을 지정하는데 이걸 0으로 만들어서 안보이게함  */
+  clip-path: polygon(0 0, 0 0, 0 0);
+
+}
+/* 로그인 */
+.login{
+  background-color: #ed552f;
+  background-image: radial-gradient(circle at right top,  #e8852e,#ed552f);
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 5px 5px 0 0 #aaa;
+  /* 가로 세로 블러 뽀샤시 색깔 */
+  /* at뒤 위치를 바꿔 그라디언트 위치를 바꾼다 */
+}
+.login-heading{
+  /* 패딩할때 마진이 있는지 몰랐는데 크롬에 있더라 기본값 주기 위해 마진 0 으로 바꿈 */
+  margin: 0;
+  text-indent: 10px;
+  background-color: blue;
+  color: yellow;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.login-form{
+  background-color: #fff;
+  border-radius: 8px 8px 0 0;
+  margin-top: 10px;
+  padding: 10px 10px 0 10px;
+
+}
+.login-form fieldset{
+  position: relative;
+  border: 0 none;
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid blue;
+  padding-bottom: 5px;
+}
+
+.user-email, .user-pw{
+ /* background-color: yellow; */
+ margin-bottom: 5px;
+}
+.login-form label{
+  widows: 4em;
+  display: inline-block;
+  /* background-color: pink; */
+}
+.login-form input{
+  width: 90px;
+  height: 22px;
+  border: 1px ;
+}
+.login label{
+  width: 25%;
+  display: inline-block;
+  /* border: 1px solid red; */
+}
+.login input{
+  width: 40%;
+}
+.btn-login{
+  background-color: #ed552f;
+  width: 50px;
+  height: 50px;
+  border: 1px solid #ed552f;
+  color: #fff;
+  padding:0;
+  border-radius: 4px;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+.btn-login{
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.sign{
+  background-color: #fff;
+  border-radius: 0 0 5px 5px;
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  padding: 2px 10px;
+  font-size: 1.3rem;
+}
+.sign .icon-right-open::before{
+  color: #ed552f;
+  margin: 0;
+}
+.sign a{
+  display: inline-block;
+  padding: 8px 0;
 }
 .slogan{
   background-color: orange;
