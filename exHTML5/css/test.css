@@ -310,13 +310,6 @@ body{
   font-size: 16px;
   font-weight: 800;
 }
-/* fieldset{
-  background-color: #fff;
-  border-radius: 5px, 5px, 0 0;
-  필드셋은 변형이 안되는가?
-  왜 로그인폼 안에 필드셋을 지칭해야하는가?
-} */
-
 
 .login-form{
   background-color: #fff;
@@ -328,7 +321,9 @@ fieldset{
   /* background-color: #fff;
   border-radius: 8px 8px 0 0;
   margin-top: 8px;
-  padding: 10px 10px 0 10px; */
+  padding: 10px 10px 0 10px;
+  필드셋은 패딩 마진등 기본값이 있기 때문에 여기에 
+  디자인 안하는게 좋음 */
 
   position: relative;
   border: 0 none;

@@ -364,7 +364,10 @@ body{
   /* border: 1px solid red; */
 }
 .login input{
-  width: 40%;
+  width: 90px;
+  height: 22px;
+  border: 1px solid #aaa;
+  padding: 1px 1px 1px 5px;
 }
 .btn-login{
   background-color: #ed552f;
@@ -402,6 +405,154 @@ body{
   display: inline-block;
   padding: 8px 0;
 }
+/* 유효성 검사 배너 */
+.validaition-list{
+  list-style: none;
+  margin:25px 0 0 0;
+  padding-left: 0;
+}
+/* 어디에 올려도 호버가 될수 있도록 li에 명령 주는게 아니라 a에 주고 
+인라인인 a를 레이아웃이 안깨지도록 블록화 한다. 만약 인라인 블록을 주면 
+텍스트가 있는데 까지만 상자가 생길 것이다. */
+.validaition-list a{
+  display: block;
+  background: url(./images/validation_icon.png) no-repeat 20px 50%, #ccc linear-gradient(180deg, #bbb,#eee);
+  padding: 7px 10px 8px 45px;
+  margin-top: 10px;
+  border: 1px solid #aaa;
+  border-radius: 35px;
+}
+.validaition-list:hover{
+  color: brown;
+}
+
+/* 웹 관련 용어 */
+.term{
+  background: #ccc linear-gradient(180deg, #bbb,#eee);
+  border: 1px solid #aaa;
+  border-radius: 7px;
+  margin: 20px 0 0px 0;
+  padding: 15px;
+}
+/* 쌤이 한 코드 */
+/* .term-heading{
+  margin: 0 0 15px 0;
+  font-size: 1.6rem;
+}
+.term-list{
+  margin: 0;
+  background-color: aqua; overflow: hidden;
+  overflow: hidden;
+}
+.term-list dd{
+  margin-left: 0;
+}
+.term-list-subject, .term-list-brief{
+  width: 145px;
+  float: right;
+}
+.term-list-subject{
+  background-color: pink;
+  color: #296897;
+  font-weight: 400;
+  margin-bottom: 10px;
+  float: right;
+  margin: 0 0 10px 0;
+}
+.term-list-thumbnail{
+
+} */
+.term-list::after{
+  display: block;
+  content: "";
+  clear: both;
+}
+.term-list-subject, .term-list-brief{
+  width: 145px;
+}
+.odd .term-list-subject, .term-list-brief{
+  width: 145px;
+}
+}
+/* 내가 한 코드 */
+.term-list{
+  background-color: yelloW;
+  font-weight: 400;
+  margin: 0;
+}
+
+.term-list-subject{
+  background-color: pink;
+  display: inline-block;
+  color: #296897;
+  margin-bottom: 10px;
+  /* float: right; */
+  margin: 0 0 10px 0;
+}
+/* .term-list-thumbnail img{
+  display: block
+} */
+.term-list-thumbnail{
+  background-color: green;
+  margin: 0 10px 0 0;
+  float: left;
+}
+.term-list-brief{
+  background-color: red;
+  margin: 0;
+  line-height: 1.6;
+  /* float: right;*/ 
+}
+
+.term-list div::after{
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* 검색폼 */
+.search-form{
+  background: #ccc linear-gradient(180deg, #bbb,#eee);
+  border: 1px solid #aaa;
+  border-bottom: none;
+  /* 밑에 보더 안주는 방법 세가지: 보더 위왼오 각각주기/ 나처럼 보더 주고 보더바텀 0 하기, 
+  보더 주고 보더바텀 칼라를 transparent하기(제일 변수 없음) */
+  border-radius: 7px 7px 0 0;
+  height: 45px;
+  padding: 15px 25px 10px 25px;
+}
+.search-form fieldset{
+  background-color: yellow;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  /* display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center; */
+}
+/* 속성 선택자 주목! 클래스 지정 없이 유용햐게 선택 */
+.search-form input[type="search"]{
+ width: 200px;
+ margin: 0 4px;
+ padding: 1px 1px 1px .5em;
+}
+.search-form input[type="search"], .btn-search{
+  border: 1px solid #aaa;
+  height: 24px;
+  border-radius: 3px;
+}
+.btn-search{
+  color: #fff;
+  background-color: #333;
+  padding: 0 8px;
+  font-size: 1.2rem;
+}
+.search-form label, .search-form input[type="search"], .btn-search{
+  vertical-align: middle;
+}
+
+/* 슬로건 */
 .slogan{
   background-color: orange;
   height: 10vh;
