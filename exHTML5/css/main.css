@@ -552,6 +552,145 @@ body{
   vertical-align: middle;
 }
 
+/* 공지사항 및 자료실 */
+/* .board{
+  background-color: yellow;
+  width: 380px;
+  position: relative;
+}
+.board li{
+  list-style: none;
+  margin: 0;
+}
+.board ul{
+  margin: 0 0 0 10px;
+  padding: 0;
+}
+.board time{
+  float: right;
+}
+.notice-heading, .pds-heading {
+  width: 80px;
+  height: 35px;
+  display: inline-block;
+  border: 1px solid orangered;
+  border-bottom: none;
+  border-radius: 5px 5px 0 0 ;
+  text-align: center;
+  font-size: 15px;
+  padding: 8px;
+  margin: 0;
+  color: orangered;
+}
+.notice-more{
+  position: absolute;
+  top: 10px;
+  right: 0;
+}
+.notice-list, .notice-list{
+  position: absolute;
+}
+.pds-heading{
+
+}
+.pds-list, .pds-more{
+  
+} */
+
+.board{
+  /* background-color: yellow; */
+  width: 380px;
+  position: relative;
+  padding-top: 45px;
+}
+/* .notice-list, .notice-more, .pds-list, .pds-more 바로 밑과 같은 선택자 */
+.board ul, .board ul+a{
+  display: none;
+}
+.board-act .notice-list, .board-act .notice-more,.board-act  
+.pds-list, .board-act .pds-more{
+  display: block !important;
+}
+.notice-list, .pds-list{
+  /* background-color: pink; */
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  /* overflow: hidden; */
+}
+.notice-list li, .pds-list li{
+  /* background-color: orange; */
+  margin-bottom: 8px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+.notice-list a, .pds-list a{
+  /* background-color: lime; */
+  /* float: left;
+  width: 285px; */
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  flex-grow: 1;
+
+  /* 
+  말줄임표 삼종세트 새로나옴
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden; */
+}
+.notice-list time, .pds-list time{
+  /* background-color: skyblue; */
+  /* margin-left: auto; 스체이스 비트윈 해결방법*/
+  /* float: right; */
+}
+.notice-list li::before, .pds-list::before{
+  /* background-color: tomato; */
+  /* float: left; */
+}
+.tab{
+  font-weight: 400;
+  margin: 0;
+  font-size: 1.4rem;
+  position: absolute;
+  top: 0;
+}
+.notice-heading{
+  left: 0;
+}
+.pds-heading{
+  left: 72px;
+}
+.tab a{
+  display: block;
+  padding: 8px 10px;
+  border: 1px solid #aaa;
+  border-radius: 5px 5px 0 0;
+  color: #666;
+  background: #ccc linear-gradient(180deg, #bbb,#eee);
+}
+.board-act .tab a{
+  color: #ed552f;
+  background: #fff;
+  border-color: #ed552f #ed552f #fff #ed552f;
+}
+.notice-more .icon-plus, .pds-more .icon-plus{
+  color: hsla(110, 50%, 50% 1);
+  /* 110 초록색 채도 명도 투명도 */
+}
+.notice-more, .pds-more{
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  padding: 8px;
+  background-color: aqua;
+}
+
+
+
+
+
 /* 슬로건 */
 .slogan{
   background-color: orange;
