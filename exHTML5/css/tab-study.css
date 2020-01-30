@@ -1,8 +1,108 @@
-a{
+@charset "utf-8";
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
+@import url(./fontello.css);
+@import url(./normalize.css);
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+a {
     text-decoration: none;
     color: inherit;
 }
 
-.board ul, .board ul+a{
+.board-act .notice-list,
+.board-act .notice-more,
+.board-act .pds-list,
+.board-act .pds-more {
+    display: block !important;
+}
+
+.board ul,
+.board ul+a {
     display: none;
+}
+
+.board {
+    position: relative;
+    background-color: yellowgreen;
+    width: 400px;
+}
+
+.notice-heading {
+    width: 80px;
+    font-size: 15px;
+    font-weight: 400;
+    color: orangered;
+    border: 1px solid orangered;
+    border-bottom: 0;
+    background-color: #fff;
+    border-radius: 5px 5px 0 0;
+    text-align: center;
+    margin: 0;
+}
+
+.pds-heading {
+    width: 80px;
+    font-size: 15px;
+    font-weight: 400;
+    color: #444;
+    border: 1px solid #666;
+    border-bottom: 0;
+    background: #ccc linear-gradient(180deg, #bbb, #eee);
+    border-radius: 5px 5px 0 0;
+    text-align: center;
+    margin: 0;
+    left: 82px;
+}
+
+.notice-heading,
+.pds-heading {
+    position: absolute;
+    top: 0;
+}
+
+.board .tab a {
+    display: block;
+    padding: 10px;
+}
+
+.notice-list,
+.pds-list {
+    /* padding: 0; */
+    background-color: pink;
+    overflow: hidden;
+    padding: 65px 0 0 0;
+    margin: 0;
+    list-style: none;
+}
+
+.board .notice-list li::before {
+    float: left;
+}
+.board .notice-list li{
+    margin-bottom: 10px;
+    background-color: orangered;
+    overflow: hidden;
+}
+.board ul a {
+    float: left;
+    width: 75%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.board ul time {
+    float: right;
+}
+
+.notice-more,
+.pds-more {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
 }

@@ -473,7 +473,7 @@ body{
 .odd .term-list-subject, .term-list-brief{
   width: 145px;
 }
-}
+
 /* 내가 한 코드 */
 .term-list{
   background-color: yelloW;
@@ -498,7 +498,7 @@ body{
   float: left;
 }
 .term-list-brief{
-  background-color: red;
+  /* background-color: red; */
   margin: 0;
   line-height: 1.6;
   /* float: right;*/ 
@@ -607,8 +607,8 @@ body{
 .board ul, .board ul+a{
   display: none;
 }
-.board-act .notice-list, .board-act .notice-more,.board-act  
-.pds-list, .board-act .pds-more{
+.board-act .notice-list, .board-act .notice-more,
+.board-act .pds-list, .board-act .pds-more{
   display: block !important;
 }
 .notice-list, .pds-list{
@@ -687,6 +687,149 @@ body{
   background-color: aqua;
 }
 
+/* 새소식 뉴스 */
+.news{
+  position: relative;
+}
+.news h2{
+  color: orangered;
+  font-size: 1.5em;
+  margin: 0 0 35px 0;
+  /* background-color: pink; */
+}
+.news-link{
+  /* background-color: blue; */
+  display: block;
+}
+.news-link::before{
+  display: block;
+  content: "";
+  position: absolute;
+  top: 35px;
+  left: 0;
+  background: #666 linear-gradient(90deg, #bbb, #fff);
+  height: 1px;
+  width: 85%;
+}
+.news-item{
+  margin: 10px 0 0 0;
+  /* background-color: tomato; */
+  position: relative;
+  padding-left: 135px;
+  min-height: 100px;
+}
+.news-item-subject{
+ margin: 0;
+ font-size: 1.4rem;
+ font-weight: 600;
+}
+.news-item-date{
+  display: block;
+  margin: 10px 0;
+}
+.news-item-thumbnail{
+  background-color: lime;
+  width: 120px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  /* 텍스트 얼라인 센터가 이미지에 왜먹지 */
+}
+.news-item-thumbnail img {
+  box-shadow: 0 15px 20px 2px #aaa;
+  margin: 0 0 20px 0;
+  /* 셰도우 x축 y축 블러부드럽게 넓이 순 */
+}
+.news-item-thumbnail figcaption{
+  text-align: center;
+  background-color: rgb(0, 204, 255);
+  /* display: inline; */
+  padding: 0 25px 0 0;
+}
+
+/* .news-item-subject, .news-item-date, .news-item-brief{
+  background-color: pink;
+  margin-left: 135px;
+} */
+.news-more{
+  /* background-color: skyblue; */
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  padding: 8px;
+}
+.news-more .icon-plus{
+  color: green;
+}
+
+/* 신규 이벤트 및 관련 사이트 */
+.gradient-box{
+  position: relative;
+  background: #ccc linear-gradient(180deg, #bbb, #eee);
+  padding: 10px;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+}
+.event-heading, .related-heading{
+  font-size: 1.6rem;
+  margin: 0;
+}
+.event{
+  background-color: yellow;
+  border-bottom: 1px solid #aaa;
+  margin-bottom: 10px;
+}
+.point-color{
+  color: orangered;
+}
+.event-thumbnail, .event-brief{
+  margin: 10px 0;
+}
+.event-thumbnail img{
+  box-shadow: 7px 7px 0 0  #777;
+  border: 1px solid #999;
+}
+.btn-event{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.related-list{
+  background-color: #fff;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  list-style: none;
+  margin: 10px 0 0 0;
+  padding: 10px;
+}
+.related-list li{
+  padding: 3px;
+  font-weight: 500;
+}
+.btn-event{
+  /* background-color: yellowgreen; */
+}
+/* .btn-event button 로 선택하면 클래스 상속 순서의 문제가 있을 수 있다*/
+.btn-event-prev, .btn-event-next{
+  background-image: url(./images/back_forward.png);
+  width: 19px;
+  height: 18px;
+  border: 0;
+  padding: 18px 0 0 0;
+  /* font-size: 0; */
+  overflow: hidden;
+}
+.btn-event-prev{
+  margin: 0 2px 0 0;
+  background-position: 0 0;
+}
+.btn-event-next{
+  /* 버튼 위치 조정하는 방법 세가지 (스프레드 이미지 좌표찾기) */
+  /* background-position: -36px 0; */
+  /* background-position: right 0; */
+  background-position: 100% 0;
+}
 
 /* 슬로건 */
 .slogan{
